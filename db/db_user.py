@@ -20,3 +20,12 @@ def get_all_users(db: Session):
 
 def get_user(db: Session, id: int):
   return db.query(DbUser).filter(DbUser.id == id).first()
+
+def update_user(db: Session, id: int, request: UserBase):
+  user = db.query(DbUser).filter(DbUser.id == id).first()
+  user.update({
+    DbUser.username: request.username,
+    DbUser.email: request.email,
+    DbUser.password: Hash.bcrypt(request.password)
+  })
+  db.commit() # Commit the changes to the database
