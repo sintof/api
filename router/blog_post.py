@@ -3,7 +3,7 @@ from fastapi import APIRouter, Query, Body, Path
 from pydantic import BaseModel
 
 router = APIRouter(
-    prefix='/blog',
+    prefix='/api/blog',
     tags=['blog']
 )
 

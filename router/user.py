@@ -8,7 +8,7 @@ from auth.oauth2 import get_current_user
 
 
 router = APIRouter(
-  prefix='/user',
+  prefix='/api/user',
   tags=['user']
 )
 
@@ -21,6 +21,11 @@ def create_user(request: UserBase, db: Session = Depends(get_db)):
 @router.get('/', response_model=List[UserDisplay])
 def get_all_users(db: Session = Depends(get_db), current_user: UserBase = Depends(get_current_user)):
   return db_user.get_all_users(db)
+
+# Read one user by username 
+@router.get('/{username}', response_model=UserDisplay)
+def get_user_by_username(username: str, db: Session = Depends(get_db)):
+  return db_user.get_user_by_username(db, username)
 
 # Read one user
 @router.get('/{id}', response_model=UserDisplay)

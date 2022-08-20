@@ -3,7 +3,7 @@ from enum import Enum
 from typing import Optional
 
 router = APIRouter(
-    prefix='/blog',
+    prefix='/api/blog',
     tags=['blog']
 )
 

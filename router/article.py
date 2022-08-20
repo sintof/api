@@ -7,7 +7,7 @@ from db import db_article
 from auth.oauth2 import get_current_user
 
 router = APIRouter(
-  prefix='/article',
+  prefix='/api/article',
   tags=['article']
 )
 

@@ -3,7 +3,7 @@ from fastapi import APIRouter, Header, Cookie, Form
 from fastapi.responses import Response, HTMLResponse, PlainTextResponse
 
 router = APIRouter(
-  prefix='/product',
+  prefix='/api/product',
   tags=['product']
 )
 
